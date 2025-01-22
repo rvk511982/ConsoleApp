@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolePractice", "ConsolePractice\ConsolePractice.csproj", "{7959E50F-CEB8-4B4F-93F3-422CDE3D159C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Authentication.Demo.ConsoleApp", "Firebase.Authentication.Demo.ConsoleApp\Firebase.Authentication.Demo.ConsoleApp.csproj", "{7DE31984-8AC1-423D-AE88-EF47EFABBCD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseAuthWebAPI.Demo", "FirebaseAuth.WebAPI.Demo\FirebaseAuthWebAPI.Demo.csproj", "{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7959E50F-CEB8-4B4F-93F3-422CDE3D159C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7959E50F-CEB8-4B4F-93F3-422CDE3D159C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7959E50F-CEB8-4B4F-93F3-422CDE3D159C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7959E50F-CEB8-4B4F-93F3-422CDE3D159C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE31984-8AC1-423D-AE88-EF47EFABBCD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE31984-8AC1-423D-AE88-EF47EFABBCD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE31984-8AC1-423D-AE88-EF47EFABBCD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE31984-8AC1-423D-AE88-EF47EFABBCD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10916444-270F-4C22-9DE4-6A2BE93CA464}
+	EndGlobalSection
+EndGlobal
