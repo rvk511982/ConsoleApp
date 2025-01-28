@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firebase.Authentication.Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirebaseAuthWebAPI.Demo", "FirebaseAuth.WebAPI.Demo\FirebaseAuthWebAPI.Demo.csproj", "{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagemenet.API", "InventoryManagemenet.API\InventoryManagemenet.API.csproj", "{21037574-A82E-4419-845F-36E3FD3A3B65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8BBA567-904F-4E79-AA3C-A8EFB6B7AB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21037574-A82E-4419-845F-36E3FD3A3B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21037574-A82E-4419-845F-36E3FD3A3B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21037574-A82E-4419-845F-36E3FD3A3B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21037574-A82E-4419-845F-36E3FD3A3B65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

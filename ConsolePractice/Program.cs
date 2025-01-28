@@ -2,8 +2,10 @@
 using ConsolePractice;
 using ConsolePractice.GeneralQuery;
 using ConsolePractice.Indexers;
+using ConsolePractice.InventoryManagementSystem;
 using ConsolePractice.Polymorphism;
 using ConsolePractice.SpecialDataTypes;
+using ConsolePractice.Test;
 
 // Console.WriteLine("Hello, World! Welcome to Console App in Visula Studio Code");
 // Logic question - Given an array of ints, write a C# method to total all the values that are even numbers.
@@ -120,6 +122,18 @@ Console.WriteLine("Salary = " + emp[3]);
 Console.WriteLine("Location = " + emp[4]);
 Console.WriteLine("Department = " + emp[5]);
 Console.WriteLine("Gender = " + emp[6]);
+
+
+// Test query
+
+
+var outputOfString = MyTest.KthLargestNumber();
+Console.WriteLine("========KthLargestNumber========");
+Console.WriteLine("The Output is ==>>" + outputOfString);
+
+// Inventory Management System
+InventoryManagement inventory = new InventoryManagement();
+inventory.ShowInventory();
 
 
 // Polymorphism
