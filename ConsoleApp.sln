@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolePractice", "ConsoleP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagemenet.API", "InventoryManagemenet.API\InventoryManagemenet.API.csproj", "{21037574-A82E-4419-845F-36E3FD3A3B65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.GraphQL", "WebApi.GraphQL\WebApi.GraphQL.csproj", "{CE2FB381-33BD-4F14-B0C1-3F4844983892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.JWTAuthentication.Pagination.FileUpload.WebApi", "GraphQL.JWTAuthentication.Pagination.FileUpload.WebApi\GraphQL.JWTAuthentication.Pagination.FileUpload.WebApi.csproj", "{08E1D408-D5A3-4CBA-9F02-2BEAD0F7E3A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{21037574-A82E-4419-845F-36E3FD3A3B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21037574-A82E-4419-845F-36E3FD3A3B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21037574-A82E-4419-845F-36E3FD3A3B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE2FB381-33BD-4F14-B0C1-3F4844983892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE2FB381-33BD-4F14-B0C1-3F4844983892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE2FB381-33BD-4F14-B0C1-3F4844983892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE2FB381-33BD-4F14-B0C1-3F4844983892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E1D408-D5A3-4CBA-9F02-2BEAD0F7E3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E1D408-D5A3-4CBA-9F02-2BEAD0F7E3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E1D408-D5A3-4CBA-9F02-2BEAD0F7E3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E1D408-D5A3-4CBA-9F02-2BEAD0F7E3A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

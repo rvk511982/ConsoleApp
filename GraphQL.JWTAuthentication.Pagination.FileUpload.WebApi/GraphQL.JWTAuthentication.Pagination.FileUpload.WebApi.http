@@ -1,0 +1,6 @@
+@GraphQL.JWTAuthentication.Pagination.FileUpload.WebApi_HostAddress = http://localhost:5236
+
+GET {{GraphQL.JWTAuthentication.Pagination.FileUpload.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

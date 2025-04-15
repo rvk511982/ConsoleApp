@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ConsolePractice
 {
@@ -196,6 +197,148 @@ namespace ConsolePractice
             return result.ToString();
         }
 
+        // Generate factorial using recursion in C#
+        public static long Factorial(int n)
+        {
+            // Base case: factorial of 0 is 1
+            if (n <= 1)
+            {
+                return 1;
+            }
+            // Recursive call
+            return n * Factorial(n - 1);
+        }
+
+        public static void GeneratePANCard()
+        {
+            Random random = new Random();
+            StringBuilder pan = new StringBuilder();
+            var panNumber = string.Empty;
+
+            // First 5 alphabets (A-Z)
+            for (int i = 0; i < 5; i++)
+            {
+                pan.Append((char)('A' + random.Next(0, 26)));
+            }
+
+            // Next 4 digits (0-9)
+            for (int i = 0; i < 4; i++)
+            {
+                pan.Append(random.Next(0, 10));
+            }
+
+            // Last alphabet (A-Z)
+            pan.Append((char)('A' + random.Next(0, 26)));
+
+            panNumber = pan.ToString();
+
+            Console.WriteLine($"Generated PAN Number: {panNumber}");
+        }
+
+        public static void GenerateUniquePANCard()
+        {
+            // Store generated PANs to avoid duplicates
+            var generatedPANs = new HashSet<string>();
+
+            Random random = new Random();
+            StringBuilder panBuilder = new StringBuilder();
+            var panNumber = string.Empty;
+            do
+            {
+                // First 3 alphabets (A-Z)
+                for (int i = 0; i < 3; i++)
+                {
+                    panBuilder.Append((char)('A' + random.Next(0, 26)));
+                }
+
+                // 4th character: Holder type (e.g., 'P' for individual)
+                panBuilder.Append('P');
+
+                // 5th alphabet (A-Z)
+                panBuilder.Append((char)('A' + random.Next(0, 26)));
+
+                // Next 4 digits (0-9)
+                for (int i = 0; i < 4; i++)
+                {
+                    panBuilder.Append(random.Next(0, 10));
+                }
+
+                // Last alphabet (A-Z)
+                panBuilder.Append((char)('A' + random.Next(0, 26)));
+
+                panNumber = panBuilder.ToString();
+            }
+            while (!IsValidPAN(panNumber) || !generatedPANs.Add(panNumber)); // Validate and ensure uniqueness
+            Console.WriteLine($"Generated Unique PAN Card Number: {panNumber}");
+        }
+
+        static bool IsValidPAN(string pan)
+        {
+            // PAN format: AAAAA9999A (4th character 'P' for individual)
+            string pattern = @"^[A-Z]{3}P[A-Z][0-9]{4}[A-Z]$";
+            return Regex.IsMatch(pan, pattern);
+        }
+
+        // Return combination of Positive and negative valu in result for given input
+        public static void PositiveNegativeValue()
+        {
+            int[] input = [1, 2, 3, -3, -6, 8, -9];
+            var positiveNumbers = new List<int>();
+            var negativeNumbers = new List<int>();
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] > 0)
+                    positiveNumbers.Add(input[i]);
+                else
+                    negativeNumbers.Add(input[i]);
+            }
+
+            var result = new List<int>();
+            int maxLength = Math.Max(positiveNumbers.Count, negativeNumbers.Count);
+            for (int a = 0; a < maxLength; a++)
+            {
+                if (a < positiveNumbers.Count)
+                    result.Add(positiveNumbers[a]);
+
+                if (a < negativeNumbers.Count)
+                    result.Add(negativeNumbers[a]);
+            }
+            //return result;
+            Console.WriteLine("Positive negative Output: " + string.Join(", ", result));
+        }
+
+        public static void GetOccuranceOfWordsFromSentence(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                Console.WriteLine("Empty");// string.Empty; // Return empty string for invalid input
+            }
+
+            // Use a dictionary to store word counts
+            var wordCounts = new Dictionary<string, int>();
+            StringBuilder result = new StringBuilder();
+            string[] words = str.Split(' ');
+
+            foreach (var word in words)
+            {
+                if (wordCounts.ContainsKey(word))
+                {
+                    wordCounts[word]++; // Increment count for existing word
+                }
+                else
+                {
+                    wordCounts.Add(word, 1); // Add new character with count 1
+                }
+            }
+
+            // print the word count and their occurance
+            foreach (var item in wordCounts)
+            {
+                Console.WriteLine("Word: {0} Count: {1}", item.Key, item.Value);
+            }
+
+        }
     }
 
     public abstract class AbstractClass

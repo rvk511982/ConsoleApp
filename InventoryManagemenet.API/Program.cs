@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IDataRepository, DataRepository>(); 
 builder.Services.AddTransient<IInventoryService, InventoryService>();
+builder.Services.AddTransient<IPANCardService, PANCardService>();
 
 var app = builder.Build();
 
