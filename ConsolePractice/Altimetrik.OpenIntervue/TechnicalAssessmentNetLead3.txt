@@ -1,0 +1,105 @@
+﻿Technical Assessment - .net lead - 3
+
+A. Data Structures & Algorithms
+Question 1: Sort and Count Duplicates
+Problem Statement: You are given an array of integers that may contain duplicates. Your task is to sort the array in non-decreasing order and count how many 
+times each unique integer appears in the array. The output should include the sorted array followed by the counts of each unique integer in the format 'number: count! 
+If there are no elements in the input array, return an empty result. 
+The input will contain at most 10,000 integers, and each integer will be between -1,000,000 and 1,000,000.
+Input Format - First line contains an integer n representing the number of elements in the array. 
+The next line contains n space-separated integers representing the elements of the array.
+Output Format - First line should contain n space-separated integers representing the sorted array. 
+Each subsequent line should contain a unique integer followed by its count, formatted as 'number: count! If there are no elements to process, output nothing.
+
+Sample Input
+6
+312231
+Sample Output
+1 1 2 2 3 3
+1: 2
+2: 2
+
+Question 2: Find Maximum Depth
+Problem Statement
+You are given a binary tree represented by its root node. Your task is to find the maximum depth of the tree. The maximum depth is defined as the number of nodes 
+along the longest path from the root node down to the farthest leaf node. A leaf node is a node with no children. 
+If the tree is empty (ie., the root is null), then the maximum depth should be 0. The input will consist of a series of integer values representing nodes 
+in level order, where -1 indicates that a node does not exist (null). You need to construct the binary tree from this input and then determine its maximum depth.
+Input Format
+The first line contains integers separated by spaces representing the level order traversal of the binary tree. 
+Each value corresponds to a node's value, and -1 represents a null node.
+Output Format
+A single integer representing the maximum depth of the binary tree.
+Sample Input
+3 9 20-1-1 15 7
+Sample Output
+3
+
+Question 3: Finds the length of the shortest path in a directed graph from a starting node to a target node using Breadth-First Search (BFS). 
+A list of tuples representing directed edges, where each tuple contains three integers (u, v, w) I indicating an edge from node u to node v with weight w.
+The length of the shortest path in terms of the number of edges traversed, or -1 if no path exists.
+
+B. Inventory Management System
+LLD - Low-Level Design
+You are tasked with designing an inventory management system for a retail company. The system must track products, their quantities, and locations within the warehouse. 
+It should support operations such as adding new products, updating stock levels after sales or restocking, and generating reports on inventory status. 
+Additionally, the system must allow for different product categories, each with unique attributes like size or color. 
+Users should be able to search for products based on various criteria and receive alerts when stock levels fall below a certain threshold. 
+Your design must accommodate future requirements such as integrating with third-party suppliers for automatic restocking or supporting multiple warehouses 
+without significant changes to existing code. Furthermore, it should enable easy addition of new product categories in the future while maintaining clear 
+separation of concerns among different components.
+Constraints
+. Each product category must have its own management logic that can be independently developed and tested
+. New product types must be addable without modifying existing inventory management implementations
+. The system must support real-time updates to stock levels across multiple warehouse locations
+
+C. SQL Queries
+You are tasked with generating a report for the customer service team to better understand their client base. The report should include the customer's full name, 
+which is a combination of their first and last names, as well as their email address. You have access to the following 
+table: ""customers** (customer_id INT PRIMARY KEY, first_name VARCHAR NOT NULL, last_name VARCHAR NOT NULL, email VARCHAR NOT NULL). 
+Write a query that retrieves the customer's full name by concatenating their first and last names and displays it alongside their email address. 
+Ensure that the full name appears in a user-friendly format.
+Answer:
+
+-- Step 1: Create the customers table
+CREATE TABLE #customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+-- Step 2: Insert sample data (initial + 10 more)
+INSERT INTO #customers (customer_id, first_name, last_name, email)
+VALUES
+(1, 'Ram', 'Kumar', 'ram.kumar@example.com'),
+(2, 'Anita', 'Sharma', 'anita.sharma@example.com'),
+(3, 'John', 'Doe', 'john.doe@example.com'),
+(4, 'Priya', 'Reddy', 'priya.reddy@example.com'),
+(5, 'Suresh', 'Patel', 'suresh.patel@example.com'),
+(6, 'Meena', 'Gupta', 'meena.gupta@example.com'),
+(7, 'Arjun', 'Singh', 'arjun.singh@example.com'),
+(8, 'Kavita', 'Iyer', 'kavita.iyer@example.com'),
+(9, 'David', 'Brown', 'david.brown@example.com'),
+(10, 'Sophia', 'Wilson', 'sophia.wilson@example.com'),
+(11, 'Rajesh', 'Nair', 'rajesh.nair@example.com'),
+(12, 'Neha', 'Verma', 'neha.verma@example.com'),
+(13, 'Michael', 'Johnson', 'michael.johnson@example.com'),
+(14, 'Emily', 'Taylor', 'emily.taylor@example.com');
+
+-- Step 3: Select query to retrieve full name and email
+SELECT 
+    CONCAT(first_name, ' ', last_name) AS full_name,
+    email as email_address
+FROM #customers;
+
+DROP TABLE #customers
+Other Answer:
+SELECT CASE
+		WHEN first_name IS NULL AND last_name IS NULL THEN ''
+		WHEN first_name IS NULL AND last_name IS NOT NULL THEN last_name
+		WHEN last_name IS NULL AND first_name IS NOT NULL THEN first_name
+		ELSE CONCAT(first_name, ' ', last_name)
+		END AS full_name
+		, email as email_address 
+  FROM customers;

@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ConsolePractice;
+using ConsolePractice.Altimetrik.OpenIntervue;
 using ConsolePractice.Codility;
 using ConsolePractice.GeneralQuery;
 using ConsolePractice.Indexers;
@@ -12,6 +13,113 @@ using ConsolePractice.SpecialDataTypes;
 using ConsolePractice.Test;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using InventoryService = ConsolePractice.SagaPattern.Services.InventoryService;
+
+
+// Data Structures & Algorithms
+// Sort and Count Duplicates
+Console.WriteLine("Start of Sort and Count Duplicates");
+int[] sortInput = { };
+TechnicalAssessmentNetLead.SortAndCountDuplicates(sortInput);
+var sortResult = TechnicalAssessmentNetLead.Process(sortInput);
+TechnicalAssessmentNetLead.PrintResult(sortResult);
+Console.WriteLine("End of Sort and Count Duplicates");
+
+// Find Maximum Depth
+// Construct tree from level order
+Console.WriteLine("Start of Find Maximum Depth - Construct tree from level order");
+var root = FindTreeNode.BuildTree(new int[] { 1, 2, 3, 4, -1, -1, 5 });
+
+// Compute maximum depth
+int depth = FindTreeNode.MaxDepth(root);
+
+Console.WriteLine("Sample Output ==> " + depth);
+Console.WriteLine("End of Find Maximum Depth - Construct tree from level order");
+
+// Finds the length of the shortest path in a directed graph from a starting node to a target node using Breadth-First Search (BFS). The graph is represented as a list of edges, where each edge is a tuple containing the source node, destination node, and weight (which is ignored in this BFS implementation).
+Console.WriteLine("Start of Finds the length of the shortest path in a directed graph");
+var edges = new List<(int, int, int)>
+{
+    (1, 2, 5),
+    (2, 3, 2),
+    (1, 4, 1),
+    (4, 5, 3),
+    (5, 3, 1),
+    (3, 6, 4)
+};
+
+Console.WriteLine("Test Case 1: " + ShortestPathBFS.FindShortestPathLength(edges, 1, 6)); // Expected: 3 (1->4->5->3->6 is 4 edges, but 1->2->3->6 is 3 edges
+Console.WriteLine("Test Case 2: " + ShortestPathBFS.FindShortestPathLength(edges, 1, 3)); // Expected: 2 (1->2->3)
+Console.WriteLine("Test Case 3: " + ShortestPathBFS.FindShortestPathLength(edges, 4, 6)); // Expected: 3 (4->5->3->6)
+Console.WriteLine("Test Case 4: " + ShortestPathBFS.FindShortestPathLength(edges, 2, 5)); // Expected: -1 (no path from 2 to 5)
+Console.WriteLine("Test Case 5: " + ShortestPathBFS.FindShortestPathLength(edges, 1, 1)); // Expected: 0 (start == target)
+Console.WriteLine("End of Finds the length of the shortest path in a directed graph");
+
+var edgesGraph = new List<(int, int, int)>
+{
+    (1, 2, 5),
+    (2, 3, 2),
+    (1, 4, 1),
+    (4, 5, 3),
+    (5, 3, 1),
+    (3, 6, 4)
+};
+
+var graph = new GraphShortestPath(edgesGraph);
+
+// BFS (edge count)
+Console.WriteLine("BFS Path 1->6: " + graph.FindShortestPath(1, 6, PathMode.EdgeCount)); // Expected: 3
+Console.WriteLine("BFS Path 1->3: " + graph.FindShortestPath(1, 3, PathMode.EdgeCount)); // Expected: 2
+Console.WriteLine("BFS Path 2->5: " + graph.FindShortestPath(2, 5, PathMode.EdgeCount)); // Expected: -1
+
+// Dijkstra (weighted)
+Console.WriteLine("Dijkstra Path 1->6: " + graph.FindShortestPath(1, 6, PathMode.Weighted)); // Expected: 9
+Console.WriteLine("Dijkstra Path 1->3: " + graph.FindShortestPath(1, 3, PathMode.Weighted)); // Expected: 5
+Console.WriteLine("Dijkstra Path 4->6: " + graph.FindShortestPath(4, 6, PathMode.Weighted)); // Expected: 8
+
+
+// Shortest Path in DAG using Dijkstra's algorithm
+var edgesDAG = new List<Tuple<int, int, int>>
+{
+    // Test Case 1
+    //Tuple.Create(0, 1, 10),
+    //Tuple.Create(0, 2, 3),
+    //Tuple.Create(1, 2, 1),
+    //Tuple.Create(1, 3, 2),
+    //Tuple.Create(2, 1, 4),
+    //Tuple.Create(2, 3, 8)
+
+    // Test Case 2
+    //Tuple.Create(0,1,2), 
+    //Tuple.Create(0,4,1), 
+    //Tuple.Create(1,2,3), 
+    //Tuple.Create(4,2,2), 
+    //Tuple.Create(4,5,4), 
+    //Tuple.Create(2,3,6), 
+    //Tuple.Create(5,3,1)
+
+    // Test Case 3
+    // Tuple.Create(0,1,5)
+
+    // Test Case 4
+    Tuple.Create(0,1,2),
+    Tuple.Create(1,2,3),
+    Tuple.Create(0,2,6)
+};
+
+// Test Case 1
+//var resultDAG = DijkstraDAG.ShortestPathInDAG(5, 6, edgesDAG, 0);
+// Test Case 2
+//var resultDAG = DijkstraDAG.ShortestPathInDAG(6, 7, edgesDAG, 0);
+// Test Case 3
+//var resultDAG = DijkstraDAG.ShortestPathInDAG(2, 1, edgesDAG, 0);
+// Test Case 4
+var resultDAG = DijkstraDAG.ShortestPathInDAG(3, 3, edgesDAG, 0);
+
+foreach (var r in resultDAG)
+{
+    Console.WriteLine("Shortest Path in DAG using Dijkstra's ==>> " + r);
+}
+
 
 // Console.WriteLine("Hello, World! Welcome to Console App in Visula Studio Code");
 // Logic question - Given an array of ints, write a C# method to total all the values that are even numbers.
@@ -44,6 +152,19 @@ for (int i = 0; i < 5; i++)
     Logical.GeneratePANCard();
     Logical.GenerateUniquePANCard();
 }
+
+// Two variables compare or two object of class compare
+StringTest.CompareTwoVariables();
+
+// Sorting Array
+int[] arr = { 1, 0, 1, 0, 1, 1, 0, 0, 1 };
+
+GeneralQueries.SortArray_UsingWhile(arr);
+Console.WriteLine("Sorted Array Using While: " + string.Join(",", arr));
+
+GeneralQueries.SortArray_UsingFor();
+
+GeneralQueries.SortArray_UsingLinq();
 
 // positive negative
 Logical.PositiveNegativeValue();

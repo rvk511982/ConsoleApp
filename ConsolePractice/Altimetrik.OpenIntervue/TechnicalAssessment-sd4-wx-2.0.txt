@@ -1,0 +1,88 @@
+﻿Technical Assessment - sd4-wx-2.0 - Question List (Data Structures and Algorithms, Sql Queries, System Design)
+Question: You are given a directed acyclic graph (DAG) represented as an adjacency list. Each edge has a positive weight associated with it. Your task is to find the 
+shortest path from a given source vertex to all other vertices in the graph using Dijkstra's algorithm. If a vertex is unreachable from the source, 
+its distance should be reported as Infinity: The graph will contain at least 1 vertex and at most 100 vertices, and each weight will be between 1 and 1000.
+Input Format
+First line contains two integers n (number of vertices) and m (number of edges). Next m lines each contain three space-separated integers u, v, w representing a 
+directed edge from vertex u to vertex v with weight w. The vertices are labeled from 0 to n-1. The last line contains an integer s representing the source vertex for 
+which you need to calculate the shortest paths.
+Output Format
+Output n lines where the i-th line contains the shortest distance from the source vertex s to vertex i. If a vertex is unreachable, output 'Infinity'.
+Sample Input
+5 6
+0 1 10
+0 2 3
+1 2 1
+1 3 2
+2 1 4
+2 3 8
+0
+
+Question: Scalable E-Commerce Shopping Cart
+HLD (High-Level Design))
+You are designing a scalable shopping cart system for an e-commerce platform that allows users to add, update, and remove items from their carts in real-time. 
+The system must support millions of concurrent users, with peak traffic during sales events reaching up to 1 million requests per second. Users should 
+experience minimal latency when interacting with their carts, ideally under 50 milliseconds for all operations. 
+The system must support 
+(1) Adding and removing items from the cart with immediate feedback to the user interface, 
+(2) Updating item quantities and calculating totals in real-time as changes occur, 
+(3) Persisting cart data reliably across sessions so that users can return later without losing their selections, 
+(4) Handling promotional discounts applied dynamically based on user behavior or inventory levels, 
+(5) Integrating with inventory management systems to ensure stock levels are accurately reflected in the cart. 
+The platform must achieve 99.95% availability and be able to recover from failures within 2 minutes. Consider how you would design the system to handle scenarios 
+where users have intermittent connectivity or when there is a sudden surge in traffic due to marketing campaigns. Also address how you would scale the architecture 
+to accommodate future growth while maintaining performance standards. Design the complete system architecture showing data flows between components and how user 
+interactions are processed efficiently.
+Constraints
+• The system must maintain strong consistency for cart data during high traffic periods while allowing eventual consistency for promotional updates 
+• Peak load can reach up to 1 million requests per second during flash sales requiring horizontal scaling strategies
+• User sessions must persist across multiple devices without data loss even if they switch devices mid-session
+
+Question: SQL Query - Customer Segmentation Analysis
+You are tasked with analyzing customer data for a retail company to categorize customers based on their total spending. 
+You are given the following table:
+"customers" (customer_id INT PRIMARY KEY, name VARCHAR NOT NULL, total_spent DECIMAL(10,2))
+Write a query that classifies each customer into one of three segments: 'Low, 'Medium' or 'High' spenders. 
+A customer is considered a Low' spender if their total spending is less than $100, 
+a 'Medium' spender if their total spending is between $100 and $500, and a 'High' spender if their total spending exceeds $500. 
+The result should include the customer ID, name, total spent, and their corresponding segment classification. 
+Order the results by customer ID in ascending order.
+Constraints
+• Ensure that all customers are included in the output regardless of their spending amount
+
+Here is the SQL query to classify customers into segments based on their total spending:
+-- 1. Create the customers table
+CREATE TABLE #customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    total_spent DECIMAL(10,2) NOT NULL
+);
+
+-- 2. Insert sample data
+INSERT INTO #customers (customer_id, name, total_spent) VALUES
+(1, 'Alice', 50.00),
+(2, 'Bob', 150.00),
+(3, 'Charlie', 600.00),
+(4, 'Diana', 300.00),
+(5, 'Ethan', 90.00),
+(6, 'Fiona', 1000.00);
+
+-- 3. Query to classify customers into segments
+SELECT 
+    customer_id,
+    name,
+    total_spent,
+    CASE
+        WHEN total_spent < 100 THEN 'Low'
+        WHEN total_spent BETWEEN 100 AND 500 THEN 'Medium'
+        ELSE 'High'
+    END AS segment
+FROM #customers
+ORDER BY customer_id ASC;
+
+Drop table #customers;
+
+This query first creates a temporary table to hold the customer data, inserts sample data into it, 
+and then selects the customer ID, name, total spent, and segment classification based on the total spending. 
+The results are ordered by customer ID in ascending order. 
+Finally, the temporary table is dropped to clean up.

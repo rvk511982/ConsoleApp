@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ConsolePractice.GeneralQuery
 {
+    /// <summary>
+    /// Provides static methods for common programming tasks such as integer swapping, string manipulation, Fibonacci
+    /// series generation, factorial calculation, array sorting, and preserving or modifying string occurrences.
+    /// </summary>
     public static class GeneralQueries
     {
         /// <summary>
@@ -98,8 +98,11 @@ namespace ConsolePractice.GeneralQuery
             Console.WriteLine("after: {0}", answer);
         }
 
-        //Reverse a string in C# without changing the position of vowels
-
+        /// <summary>
+        /// Reverse a string in C# without changing the position of vowels
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Return the result</returns>
         public static string ReverseWithoutChangingVowels(string input)
         {
             HashSet<char> vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
@@ -134,6 +137,72 @@ namespace ConsolePractice.GeneralQuery
             }
 
             return new string(chars);
+        }
+
+        /// <summary>
+        /// Sort Array without using while loop
+        /// </summary>
+        /// <param name="arr"></param>
+        public static void SortArray_UsingWhile(int[] arr)
+        {
+            int left = 0, right = arr.Length - 1;
+
+            while (left < right)
+            {
+                if (arr[left] == 0)
+                {
+                    left++;
+                }
+                else if (arr[right] == 1)
+                {
+                    right--;
+                }
+                else
+                {
+                    // Swap arr[left] and arr[right]
+                    arr[left] = 0;
+                    arr[right] = 1;
+                    left++;
+                    right--;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Another way to Sort Array without using any in built function
+        /// </summary>
+        public static void SortArray_UsingFor()
+        {
+            int[] arr = { 1, 0, 1, 0, 1, 1, 0, 0, 1 };
+            int zeroCount = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == 0)
+                {
+                    zeroCount++;
+                }
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (i < zeroCount)
+                    arr[i] = 0;
+                else
+                    arr[i] = 1;
+            }
+
+            Console.WriteLine("Sorted array Using For: " + string.Join(",", arr));
+        }
+
+        /// <summary>
+        /// Sort Array without using linq query
+        /// </summary>
+        public static void SortArray_UsingLinq()
+        {
+            int[] arr = { 1, 0, 1, 0, 1, 1, 0, 0, 1 };
+            var result = arr.OrderBy(x => x).ToArray();
+
+            Console.WriteLine("Sorted array Using Linq: " + string.Join(",", result));
         }
     }
 }
